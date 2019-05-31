@@ -17,9 +17,9 @@
                                     {{ $micropost->user->name }}
                                     {{ $micropost->content }}
                                 </div>
-                                <div>
-                                    <p>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</p>
-                                </div>
+                                {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
+                                    {!! Form::submit('Unfavorite', ['class' => "btn btn-success"]) !!}
+                                {!! Form::close() !!}
                             </div>
                         </li>
                     @endforeach
